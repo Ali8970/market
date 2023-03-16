@@ -11,15 +11,15 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getAllProducts(){
-    return this.http.get<Product[]>(environment.baseUrl + 'products');
+    return this.http.get<Product[]>('https://fakestoreapi.com/' + 'products');
   }
   getAllCategories(){
-    return this.http.get<Product[]>(environment.baseUrl + 'products/categories');
+    return this.http.get<Product[]>('https://fakestoreapi.com/' + 'products/categories');
   }
   getProductsByCategory(value: string){
-    return this.http.get<Product>(environment.baseUrl + 'products/category/'+value);
+    return this.http.get<Product>('https://fakestoreapi.com/' + 'products/category/'+value);
   }
   getSingleProduct(id: number){
-    return this.http.get<Product>(environment.baseUrl +'products/'+ id);
+    return this.http.get<Product>('https://fakestoreapi.com/' +'products/'+ id);
   }
 }
