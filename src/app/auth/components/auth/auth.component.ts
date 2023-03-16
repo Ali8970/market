@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -9,12 +10,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class AuthComponent implements OnInit {
 
   signupForm: FormGroup;
-  submitted = false;
   loginMode = true;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private route: Router) { }
   ngOnInit() {
     this.signupForm = new FormGroup({
-        username: new FormControl(null, [Validators.required]),
         email: new FormControl(null,[Validators.required, Validators.email]),
         password: new FormControl(null, [Validators.required]),
       })
@@ -23,7 +22,9 @@ export class AuthComponent implements OnInit {
   onSwitchMode(){
     this.loginMode = !this.loginMode;
   }
-  onSubmit(){}
+  onSubmit(){
+    this.route.navigate(['/products']);
+  }
 
 }
 
