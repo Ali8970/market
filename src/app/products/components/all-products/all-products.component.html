@@ -1,0 +1,29 @@
+<div class="box mt-5">
+  <div class="my-3 w-25">
+    <app-select [title]="'Categories'" [options]="categories" (selection)="filterCategories($event)"></app-select>
+  </div>
+
+  <div class="row" *ngIf="!loading">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" *ngFor="let product of products" >
+      <app-product [product]="product" (item)="add($event)"></app-product>
+    </div>
+  </div>
+  <div class="text-center w-100" *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div>
+  <nav aria-label="..." *ngIf="!loading">
+    <ul class="pagination my-5" style="cursor: pointer;">
+      <li class="page-item disabled">
+        <a class="page-link" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item active">
+        <a class="page-link" >1 <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="page-item"><a class="page-link" >2</a></li>
+      <li class="page-item"><a class="page-link" >3</a></li>
+      <li class="page-item">
+        <a class="page-link" >Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

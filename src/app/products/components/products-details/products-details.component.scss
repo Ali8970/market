@@ -1,0 +1,27 @@
+.box {
+  width: 90%;
+  margin: 100px auto;
+  height: 500px;
+
+  ul {
+    li {
+      font-size: 22px;
+      margin: 20px 0;
+    }
+  }
+  img {
+    width: 100%;
+    max-height: 500px;
+    min-height: 500px;
+  }
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48,
+}
+.material-symbols-outlined {
+  color: #ffc107;
+}

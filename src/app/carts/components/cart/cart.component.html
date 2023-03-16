@@ -1,0 +1,116 @@
+
+<!-- <div class="container"> -->
+  <div class="contentbar mt-5">
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-xl-12">
+        <div class="card m-b-30">
+          <div class="card-header">
+            <h5 class="card-title">Shopping Cart</h5>
+          </div>
+          <div class="card-body">
+            <div class="row justify-content-center">
+              <div class="col-lg-11 col-xl-10">
+                <div class="cart-container">
+                  <div class="cart-head">
+                    <div class="table-responsive">
+                      <table class="table table-borderless">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Action</th>
+                            <th scope="col">Photo</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                            <th scope="col" class="text-right">Total</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let product of cartProducts; let i=index">
+                            <th scope="row">{{ i+1 }}</th>
+                            <td class="d-flex justify-content-center"
+                              style="cursor: pointer;" (click)="deleteProduct(i)">
+                              <a class="text-danger">
+                                <i class="ri-delete-bin-3-line"
+                                  style="font-size: 20px;"></i>
+                              </a>
+                            </td>
+                            <td><img
+                                [src]="product.item.image"
+                                class="img-fluid" width="35" alt="product"></td>
+                            <td>{{ product.item.title }}</td>
+                            <td>
+                              <div class="form-group mb-0">
+                                <input type="number" class="form-control
+                                  cart-qty" name="cartQty1" id="cartQty1"
+                                  min="0"
+                                  [(ngModel)]="product.quantity"
+                                  (change)="getCartTotalPrice()">
+                              </div>
+                            </td>
+                            <td>{{ product.item.price }} L.E</td>
+                            <td class="text-right">{{ product.quantity *
+                              product.item.price | number }} L.E</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="cart-body">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-6  order-2 order-lg-1 col-lg-5
+                        col-xl-6">
+                        <div class="order-note">
+                          <form>
+                            <div class="form-group">
+                              <label for="specialNotes">Special Note for this
+                                order:</label>
+                              <textarea class="form-control mt-1"
+                                name="specialNotes"
+                                id="specialNotes" rows="3" placeholder="Message"></textarea>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 order-xs-1 order-lg-2 col-lg-7
+                        col-xl-6">
+                        <div class="order-total table-responsive ">
+                          <table class="table table-borderless text-right tdwidth">
+                            <tbody>
+                              <tr>
+                                <td>Sub Total :</td>
+                                <td>{{ total | number }} L.E</td>
+                              </tr>
+                              <tr>
+                                <td>Shipping :</td>
+                                <td>{{ shipping }} L.E</td>
+                              </tr>
+                              <tr>
+                                <td>Tax :</td>
+                                <td>{{ tax }} L.E</td>
+                              </tr>
+                              <tr>
+                                <td class="f-w-7 font-18"><h4>Total :</h4></td>
+                                <td class="f-w-7 font-18"><h4>{{ total | number
+                                    }} L.E</h4></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cart-footer d-flex justify-content-center">
+                    <button type="button" class="btn btn-info my-1" style="color: #fff;background-color: #0d6efd; text-align: center;"><i></i>Order
+                      Now</button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->

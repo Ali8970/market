@@ -1,0 +1,46 @@
+<div class="item">
+  <div routerLink="details/{{ product.id }}" style="cursor: pointer;">
+    <img [src]="product.image" alt="product">
+    <div class="body">
+      <h4>{{ product.title }}</h4>
+      <p>{{ product.description }}</p>
+    </div>
+  </div>
+  <div class="px-3 mb-2 d-flex justify-content-between align-item-center">
+    <button class="btn btn-success" *ngIf="!addbutton" (click)="addbutton=true">Add
+      To Cart</button>
+    <div class="d-flex w-50" *ngIf="addbutton">
+      <input type="number" class="form-control" min="0" [(ngModel)]="amount">
+      <button class="btn btn-danger" (click)="addProduct(); addbutton=false">Add</button>
+    </div>
+    <span>{{ product.price }} L.E</span>
+  </div>
+</div>
+
+
+
+<!-- <div class="card" >
+  <img class="card-img-top" [src]="product.image" alt="product">
+  <div class="card-body">
+    <h4>{{ product.title }}</h4>
+    <p>{{ product.description }}</p>
+  </div>
+  <div class="px-3 mb-2 d-flex justify-content-between align-item-center">
+    <button class="btn btn-success" *ngIf="!addbutton" (click)="addbutton=true">Add
+      To Cart</button>
+    <div class="d-flex w-50" *ngIf="addbutton">
+      <input type="number" class="form-control" [(ngModel)]="amount">
+      <button class="btn btn-danger" (click)="addProduct(); addbutton=false">Add</button>
+    </div>
+    <span>{{ product.price }} L.E</span>
+  </div>
+</div> -->
+
+<!-- <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->
